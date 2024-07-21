@@ -10,7 +10,6 @@
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            display: flex;
             background: url('background.jpg') no-repeat center center fixed;
             background-size: cover;
         }
@@ -131,24 +130,47 @@
             background-color: #2980b9;
         }
         @media (max-width: 768px) {
+            body {
+                display: block;
+            }
             .sidebar {
-                width: 200px;
+                width: 100%;
+                height: auto;
+                position: static;
+                box-shadow: none;
+                padding: 10px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .sidebar img {
+                width: 50px;
+                height: 50px;
+                margin-bottom: 0;
+                border: 2px solid #ecf0f1;
             }
             .sidebar h1 {
-                font-size: 1.5em;
+                font-size: 1.2em;
+                margin: 0;
             }
             .sidebar p {
-                font-size: 1em;
+                font-size: 0.9em;
+                margin: 0;
+                color: #bdc3c7;
+            }
+            .sidebar .menu {
+                display: none;
             }
             .content {
-                margin-left: 200px;
-                padding: 20px;
+                margin: 0;
+                padding: 10px;
             }
             .section h2 {
                 font-size: 1.3em;
             }
             .resume-btn {
-                width: 80%;
+                width: 100%;
             }
         }
     </style>
@@ -156,8 +178,10 @@
 <body>
     <div class="sidebar">
         <img src="profile.jpg" alt="Profile Picture">
-        <h1>Aswin Kumar</h1>
-        <p>Automation & Software - R&D Engineer</p>
+        <div>
+            <h1>Aswin Kumar</h1>
+            <p>Automation & Software - R&D Engineer</p>
+        </div>
         <div class="menu">
             <a href="#summary">Summary</a>
             <a href="#education">Education</a>
