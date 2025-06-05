@@ -1,189 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Aswin Kumar - Profile</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aswin Kumar - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
     body {
-      margin: 0;
       font-family: 'Roboto', sans-serif;
-      background: url('background.jpg') no-repeat center center fixed;
-      background-size: cover;
-      overflow-x: hidden;
-      animation: fadeIn 1.5s ease-in;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      display: flex;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #ecf0f1;
     }
     .sidebar {
-      width: 250px;
-      background: rgba(44, 62, 80, 0.6);
-      backdrop-filter: blur(10px);
-      color: #fff;
-      position: fixed;
-      height: 100%;
-      padding: 30px 20px;
+      width: 260px;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      box-shadow: 0 0 15px rgba(0,0,0,0.2);
-      animation: slideInLeft 1.2s ease-out;
-    }
-    @keyframes slideInLeft {
-      from { transform: translateX(-100%); }
-      to { transform: translateX(0); }
+      position: fixed;
+      height: 100vh;
+      overflow-y: auto;
+      border-right: 2px solid #00f0ff33;
     }
     .sidebar img {
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
-      width: 140px;
-      height: 140px;
+      border: 3px solid #00f0ff;
       margin-bottom: 15px;
-      border: 4px solid rgba(255, 255, 255, 0.8);
-      transition: transform 0.3s ease;
-    }
-    .sidebar img:hover {
-      transform: scale(1.1);
     }
     .sidebar h1 {
-      font-size: 1.8em;
-      margin: 10px 0 5px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.2rem;
+      color: #00f0ff;
+      margin-bottom: 10px;
+      text-align: center;
     }
     .sidebar p {
-      font-size: 1em;
       text-align: center;
-      color: #ccc;
+      font-size: 0.9rem;
+      color: #aaa;
+      margin-bottom: 20px;
     }
     .menu a {
       display: block;
-      padding: 12px;
-      margin: 8px 0;
-      color: #fff;
       text-decoration: none;
+      color: #00f0ff;
+      padding: 10px;
       border-radius: 6px;
-      background: linear-gradient(135deg, #2980b9, #6dd5fa);
-      text-align: center;
-      transition: transform 0.3s, background 0.3s;
+      margin-bottom: 10px;
+      transition: background 0.3s;
     }
     .menu a:hover {
-      transform: scale(1.05);
-      background: linear-gradient(135deg, #1abc9c, #3498db);
+      background: #00f0ff33;
     }
     .content {
-      margin-left: 270px;
+      margin-left: 260px;
       padding: 40px;
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(8px);
-      animation: fadeIn 2s ease-in;
+      flex: 1;
+      overflow-y: auto;
     }
     .section {
       margin-bottom: 40px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      border: 1px solid #00f0ff22;
     }
-    .section h2 {
-      font-size: 1.6em;
-      color: #2c3e50;
-      border-bottom: 3px solid #3498db;
-      padding-bottom: 8px;
-      margin-bottom: 20px;
-      animation: fadeInUp 1s ease-out;
+    h2 {
+      font-family: 'Orbitron', sans-serif;
+      margin-bottom: 10px;
+      color: #00f0ff;
     }
-    @keyframes fadeInUp {
-      from { transform: translateY(20px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-    .section p, .section li {
-      color: #333;
-      line-height: 1.7;
-      animation: fadeIn 1.5s ease-in;
+    ul {
+      padding-left: 20px;
+      list-style: disc;
     }
     .skills, .technical-skills {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
+      margin-top: 10px;
     }
     .skill, .tech-skill {
-      background: linear-gradient(135deg, #8e44ad, #3498db);
-      color: #fff;
-      padding: 8px 16px;
+      background: #00f0ff;
+      color: #000;
+      padding: 5px 10px;
       border-radius: 20px;
-      font-size: 0.9em;
-      cursor: default;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .skill:hover, .tech-skill:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 15px rgba(52, 152, 219, 0.6);
+      font-size: 0.85rem;
     }
     .contact-info {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 30px;
+      margin-top: 20px;
     }
     .contact-info a {
-      font-size: 1.2em;
-      color: #2980b9;
+      display: inline-block;
+      margin-right: 10px;
       text-decoration: none;
-      transition: transform 0.3s, color 0.3s;
-    }
-    .contact-info a:hover {
-      color: #1abc9c;
-      transform: scale(1.1);
+      color: #00f0ff;
     }
     .resume-btn {
-      display: block;
-      margin: 40px auto;
-      padding: 15px 25px;
-      background: linear-gradient(90deg, #00c6ff, #0072ff);
-      color: white;
-      font-size: 1.2em;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #00f0ff;
+      color: #000;
+      border-radius: 6px;
       text-decoration: none;
-      text-align: center;
-      transition: background 0.4s, transform 0.3s;
-      box-shadow: 0 0 12px rgba(0, 114, 255, 0.6);
-      animation: pulse 2s infinite;
+      font-weight: bold;
+      transition: background 0.3s;
     }
     .resume-btn:hover {
-      transform: scale(1.05);
-      background: linear-gradient(90deg, #6dd5fa, #2980b9);
-    }
-    @keyframes pulse {
-      0% { box-shadow: 0 0 12px rgba(0,114,255,0.6); }
-      50% { box-shadow: 0 0 20px rgba(0,114,255,1); }
-      100% { box-shadow: 0 0 12px rgba(0,114,255,0.6); }
-    }
-
-    @media (max-width: 768px) {
-      .sidebar {
-        width: 100%;
-        height: auto;
-        position: static;
-        flex-direction: row;
-        justify-content: space-around;
-        padding: 10px;
-      }
-      .sidebar img {
-        width: 50px;
-        height: 50px;
-      }
-      .sidebar h1 {
-        font-size: 1.2em;
-      }
-      .content {
-        margin-left: 0;
-        padding: 20px;
-      }
-      .menu {
-        display: none;
-      }
+      background: #00c4d6;
     }
   </style>
 </head>
@@ -204,114 +139,113 @@
       <a href="#additional-info">Additional Info</a>
     </div>
   </div>
-    <div class="content">
-        <div id="summary" class="section">
-            <h2>Summary</h2>
-            <p>I am an experienced Automation and Software Engineer with over 4 years of experience in core automation, industrial protocols, data analysis, robotics, and AI. Proficient in DevOps Agile methodology, I have a proven history of delivering high-quality results in fast-paced environments. My expertise in automation and software engineering, coupled with my passion for innovation, makes me a valuable asset to any organization seeking to leverage technology for business success.</p>
-        </div>
-        <div id="education" class="section">
-            <h2>Education</h2>
-            <p>B.E. in Mechatronics Engineering, Agni College of Technology – Anna University, Secured 80.3%</p>
-        </div>
-        <div id="experience" class="section">
-            <h2>Professional Experience</h2>
-            <p><strong>Automation & Software - R&D Engineer</strong>, Lincoln Electric, Chennai, IN</p>
-            <ul>
-                <li>Drove Cobot plugin software development efforts and commissioned industrial robots including ABB GoFa and Fanuc CRX.</li>
-                <li>Designed and developed Python-based benchmarking tools utilizing advanced machine learning methodologies such as TensorFlow and OpenCV, optimized with threading, multiprocessing, and GPU acceleration.</li>
-                <li>Utilized Azure ML platform for cloud computing and coordinated with DevOps teams for efficient monitoring and deployment, creating fully automated result generation and data storage systems for Industry 4.0.</li>
-                <li>Developed Selenium-based RPA solutions to automate web-based tasks, improving efficiency and accuracy in repetitive processes.</li>
-            </ul>
-            <p><strong>Automation & Control Engineer</strong>, Qtek Mechatronics, Chennai, IN</p>
-            <ul>
-                <li>Designed and programmed an Automated Guided Vehicle and Multi-Axis Robot for 3D printing, ensuring location precision with Decawave technology.</li>
-                <li>Implemented a Pick-To-Light System using I2C, RS232, Profinet, and TCP/IP communication protocols for accurate component picking, enabling efficient tracking and analysis through data logging and report generation.</li>
-                <li>Programmed an Auto-Weighing Machine using Siemens S7-1200 PLC and created the front-end in JavaScript with Node-RED for a user-friendly interface, ensuring efficient and precise weighing.</li>
-            </ul>
-        </div>
-        <div id="projects" class="section">
-            <h2>Key Development Projects</h2>
-            <p><strong>Plugin Development</strong> (Tech Stack: Karel, PowerShell, TypeScript, Vue, RoboGuide | Mar 2023 | Chennai, IN)</p>
-            <ul>
-                <li>Developed a Cobot plugin that facilitates communication between welding power sources and Cobot, while also offering improved UI and support for welding parameters.</li>
-                <li>Incorporated reinforcement learning to enhance the plugin's results.</li>
-            </ul>
-            <p><strong>Python-Based Benchmarking Tools</strong> (Tech Stack: Python, HTML, Flask, TensorFlow, OpenCV, NumPy, Pandas, Matplotlib | Jun 2020)</p>
-            <ul>
-                <li>Created comprehensive benchmarking tools for welding tasks utilizing state-of-the-art machine learning techniques such as CNN and UNET++.</li>
-                <li>Optimized performance by implementing GPU clusters and multiprocessing.</li>
-                <li>Developed HTML, CSS, and JavaScript through the Flask framework for user interaction.</li>
-            </ul>
-        </div>
-        <div id="skills" class="section">
-            <h2>Core Skills</h2>
-            <div class="skills">
-                <div class="skill">Industrial Automation</div>
-                <div class="skill">PLC Programming</div>
-                <div class="skill">Control Systems</div>
-                <div class="skill">Data Organization & Management</div>
-                <div class="skill">Coding & Troubleshooting</div>
-                <div class="skill">DevOps</div>
-                <div class="skill">Project Management</div>
-                <div class="skill">Scrum Master</div>
-            </div>
-            <h2>Technical Skills</h2>
-            <div class="technical-skills">
-                <div class="tech-skill">Industrial Robot Programming</div>
-                <div class="tech-skill">Cobot Plugin Development - ABB & Fanuc</div>
-                <div class="tech-skill">TypeScript</div>
-                <div class="tech-skill">C#</div>
-                <div class="tech-skill">C++</div>
-                <div class="tech-skill">Visual Basic</div>
-                <div class="tech-skill">Python</div>
-                <div class="tech-skill">Node.js</div>
-                <div class="tech-skill">Node-RED</div>
-                <div class="tech-skill">HTML5</div>
-                <div class="tech-skill">CSS</div>
-                <div class="tech-skill">JavaScript</div>
-                <div class="tech-skill">JSP</div>
-                <div class="tech-skill">Servlets</div>
-                <div class="tech-skill">Azure ML</div>
-                <div class="tech-skill">Azure DevOps & pipelines</div>
-                <div class="tech-skill">MySQL</div>
-                <div class="tech-skill">Flask</div>
-                <div class="tech-skill">Fanuc - R30id & CRX</div>
-                <div class="tech-skill">ABB - Irc5 & GoFa</div>
-                <div class="tech-skill">S7-1200 TIA Portal</div>
-                <div class="tech-skill">Delta HMI</div>
-                <div class="tech-skill">Raspberry Pi</div>
-                <div class="tech-skill">Arduino</div>
-                <div class="tech-skill">RS232</div>
-                <div class="tech-skill">RS485</div>
-                <div class="tech-skill">TCP/IP</div>
-                <div class="tech-skill">Ethernet/IP</div>
-                <div class="tech-skill">Profinet</div>
-                <div class="tech-skill">MQTT</div>
-                <div class="tech-skill">FTP</div>
-                <div class="tech-skill">API Integration</div>
-                
-            </div>
-        </div>
-        <div id="certifications" class="section">
-            <h2>Certifications</h2>
-            <p>Programming in C | NPTEL</p>
-            <p>Arc Tool Handling | Fanuc</p>
-            <p>Karel | Fanuc</p>
-            <p>MongoDB | Udemy</p>
-            <p>Internet of Things: How did we get here? | University of California San Diego (Coursera)</p>
-            <p>AI For Everyone | deeplearning.ai</p>
-            <p>Deep Learning | National Research University Higher School of Economics (Coursera)</p>
-        </div>
-        <div id="additional-info" class="section">
-            <h2>Additional Information</h2>
-            <p><strong>Languages:</strong> Tamil (Native), English (Professional), Malayalam (Medium)</p>
-            <p><strong>Interests:</strong> Robotics, Space systems, Nano-bots, Music</p>
-        </div>
-        <div class="contact-info">
-            <a href="mailto:aswinr1807@gmail.com">Email</a>
-            <a href="https://www.linkedin.com/in/aswin-kumar-robotic-engineer/" target="_blank">LinkedIn</a>
-        </div>
-        <a href="AswinResume.pdf" class="resume-btn" download>Download Resume</a>
+  <div class="content">
+    <div id="summary" class="section">
+      <h2>Summary</h2>
+      <p>I am an experienced Automation and Software Engineer with over 4 years of experience in core automation, industrial protocols, data analysis, robotics, and AI. Proficient in DevOps Agile methodology, I have a proven history of delivering high-quality results in fast-paced environments. My expertise in automation and software engineering, coupled with my passion for innovation, makes me a valuable asset to any organization seeking to leverage technology for business success.</p>
     </div>
+    <div id="education" class="section">
+      <h2>Education</h2>
+      <p>B.E. in Mechatronics Engineering, Agni College of Technology – Anna University, Secured 80.3%</p>
+    </div>
+    <div id="experience" class="section">
+      <h2>Professional Experience</h2>
+      <p><strong>Automation & Software - R&D Engineer</strong>, Lincoln Electric, Chennai, IN</p>
+      <ul>
+        <li>Drove Cobot plugin software development efforts and commissioned industrial robots including ABB GoFa and Fanuc CRX.</li>
+        <li>Designed and developed Python-based benchmarking tools utilizing advanced machine learning methodologies such as TensorFlow and OpenCV, optimized with threading, multiprocessing, and GPU acceleration.</li>
+        <li>Utilized Azure ML platform for cloud computing and coordinated with DevOps teams for efficient monitoring and deployment, creating fully automated result generation and data storage systems for Industry 4.0.</li>
+        <li>Developed Selenium-based RPA solutions to automate web-based tasks, improving efficiency and accuracy in repetitive processes.</li>
+      </ul>
+      <p><strong>Automation & Control Engineer</strong>, Qtek Mechatronics, Chennai, IN</p>
+      <ul>
+        <li>Designed and programmed an Automated Guided Vehicle and Multi-Axis Robot for 3D printing, ensuring location precision with Decawave technology.</li>
+        <li>Implemented a Pick-To-Light System using I2C, RS232, Profinet, and TCP/IP communication protocols for accurate component picking, enabling efficient tracking and analysis through data logging and report generation.</li>
+        <li>Programmed an Auto-Weighing Machine using Siemens S7-1200 PLC and created the front-end in JavaScript with Node-RED for a user-friendly interface, ensuring efficient and precise weighing.</li>
+      </ul>
+    </div>
+    <div id="projects" class="section">
+      <h2>Key Development Projects</h2>
+      <p><strong>Plugin Development</strong> (Tech Stack: Karel, PowerShell, TypeScript, Vue, RoboGuide | Mar 2023 | Chennai, IN)</p>
+      <ul>
+        <li>Developed a Cobot plugin that facilitates communication between welding power sources and Cobot, while also offering improved UI and support for welding parameters.</li>
+        <li>Incorporated reinforcement learning to enhance the plugin's results.</li>
+      </ul>
+      <p><strong>Python-Based Benchmarking Tools</strong> (Tech Stack: Python, HTML, Flask, TensorFlow, OpenCV, NumPy, Pandas, Matplotlib | Jun 2020)</p>
+      <ul>
+        <li>Created comprehensive benchmarking tools for welding tasks utilizing state-of-the-art machine learning techniques such as CNN and UNET++.</li>
+        <li>Optimized performance by implementing GPU clusters and multiprocessing.</li>
+        <li>Developed HTML, CSS, and JavaScript through the Flask framework for user interaction.</li>
+      </ul>
+    </div>
+    <div id="skills" class="section">
+      <h2>Core Skills</h2>
+      <div class="skills">
+        <div class="skill">Industrial Automation</div>
+        <div class="skill">PLC Programming</div>
+        <div class="skill">Control Systems</div>
+        <div class="skill">Data Organization & Management</div>
+        <div class="skill">Coding & Troubleshooting</div>
+        <div class="skill">DevOps</div>
+        <div class="skill">Project Management</div>
+        <div class="skill">Scrum Master</div>
+      </div>
+      <h2>Technical Skills</h2>
+      <div class="technical-skills">
+        <div class="tech-skill">Industrial Robot Programming</div>
+        <div class="tech-skill">Cobot Plugin Development - ABB & Fanuc</div>
+        <div class="tech-skill">TypeScript</div>
+        <div class="tech-skill">C#</div>
+        <div class="tech-skill">C++</div>
+        <div class="tech-skill">Visual Basic</div>
+        <div class="tech-skill">Python</div>
+        <div class="tech-skill">Node.js</div>
+        <div class="tech-skill">Node-RED</div>
+        <div class="tech-skill">HTML5</div>
+        <div class="tech-skill">CSS</div>
+        <div class="tech-skill">JavaScript</div>
+        <div class="tech-skill">JSP</div>
+        <div class="tech-skill">Servlets</div>
+        <div class="tech-skill">Azure ML</div>
+        <div class="tech-skill">Azure DevOps & pipelines</div>
+        <div class="tech-skill">MySQL</div>
+        <div class="tech-skill">Flask</div>
+        <div class="tech-skill">Fanuc - R30id & CRX</div>
+        <div class="tech-skill">ABB - Irc5 & GoFa</div>
+        <div class="tech-skill">S7-1200 TIA Portal</div>
+        <div class="tech-skill">Delta HMI</div>
+        <div class="tech-skill">Raspberry Pi</div>
+        <div class="tech-skill">Arduino</div>
+        <div class="tech-skill">RS232</div>
+        <div class="tech-skill">RS485</div>
+        <div class="tech-skill">TCP/IP</div>
+        <div class="tech-skill">Ethernet/IP</div>
+        <div class="tech-skill">Profinet</div>
+        <div class="tech-skill">MQTT</div>
+        <div class="tech-skill">FTP</div>
+        <div class="tech-skill">API Integration</div>
+      </div>
+    </div>
+    <div id="certifications" class="section">
+      <h2>Certifications</h2>
+      <p>Programming in C | NPTEL</p>
+      <p>Arc Tool Handling | Fanuc</p>
+      <p>Karel | Fanuc</p>
+      <p>MongoDB | Udemy</p>
+      <p>Internet of Things: How did we get here? | University of California San Diego (Coursera)</p>
+      <p>AI For Everyone | deeplearning.ai</p>
+      <p>Deep Learning | National Research University Higher School of Economics (Coursera)</p>
+    </div>
+    <div id="additional-info" class="section">
+      <h2>Additional Information</h2>
+      <p><strong>Languages:</strong> Tamil (Native), English (Professional), Malayalam (Medium)</p>
+      <p><strong>Interests:</strong> Robotics, Space systems, Nano-bots, Music</p>
+    </div>
+    <div class="contact-info">
+      <a href="mailto:aswinr1807@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/aswin-kumar-robotic-engineer/" target="_blank">LinkedIn</a>
+    </div>
+    <a href="AswinResume.pdf" class="resume-btn" download>Download Resume</a>
+  </div>
 </body>
 </html>
