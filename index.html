@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Aswin Kumar - Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Portfolio of Aswin Kumar - Automation & Software R&D Engineer. Expert in industrial automation, robotics, and AI." />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <style>
     * {
       box-sizing: border-box;
@@ -17,143 +19,216 @@
       min-height: 100vh;
       background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       color: #ecf0f1;
+      scroll-behavior: smooth;
+      line-height: 1.7;
     }
     .sidebar {
-      width: 260px;
-      background: rgba(0, 0, 0, 0.8);
-      padding: 20px;
+      width: 280px;
+      background: rgba(0, 0, 0, 0.85);
+      padding: 30px 25px;
       display: flex;
       flex-direction: column;
       align-items: center;
       position: fixed;
       height: 100vh;
       overflow-y: auto;
-      border-right: 2px solid #00f0ff33;
+      border-right: 2px solid #00f0ff44;
+      transition: background 0.3s;
     }
     .sidebar img {
-      width: 120px;
-      height: 120px;
+      width: 140px;
+      height: 140px;
       border-radius: 50%;
       border: 3px solid #00f0ff;
-      margin-bottom: 15px;
+      margin-bottom: 25px;
     }
     .sidebar h1 {
       font-family: 'Orbitron', sans-serif;
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       color: #00f0ff;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
       text-align: center;
     }
     .sidebar p {
       text-align: center;
-      font-size: 0.9rem;
+      font-size: 1rem;
       color: #aaa;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
+      line-height: 1.4;
     }
     .menu a {
       display: block;
       text-decoration: none;
       color: #00f0ff;
-      padding: 10px;
-      border-radius: 6px;
-      margin-bottom: 10px;
-      transition: background 0.3s;
+      padding: 14px 18px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      font-size: 1.05rem;
+      transition: background 0.3s, color 0.3s;
     }
-    .menu a:hover {
-      background: #00f0ff33;
+    .menu a:hover,
+    .menu a.active {
+      background: #00f0ff66;
+      color: #000;
     }
     .content {
-      margin-left: 260px;
-      padding: 40px;
+      margin-left: 280px;
+      padding: 50px 60px;
       flex: 1;
       overflow-y: auto;
     }
     .section {
-      margin-bottom: 40px;
-      padding: 20px;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 10px;
-      border: 1px solid #00f0ff22;
+      margin-bottom: 60px;
+      padding: 30px 35px;
+      background: rgba(255, 255, 255, 0.07);
+      border-radius: 12px;
+      border: 1px solid #00f0ff33;
     }
     h2 {
       font-family: 'Orbitron', sans-serif;
-      margin-bottom: 10px;
+      margin-bottom: 18px;
       color: #00f0ff;
+      font-size: 2rem;
+    }
+    p {
+      margin-bottom: 18px;
+      font-size: 1.1rem;
     }
     ul {
-      padding-left: 20px;
+      padding-left: 24px;
       list-style: disc;
+      margin-bottom: 18px;
+      font-size: 1.05rem;
     }
     .skills, .technical-skills {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 10px;
+      gap: 16px;
+      margin-top: 15px;
     }
     .skill, .tech-skill {
       background: #00f0ff;
       color: #000;
-      padding: 5px 10px;
-      border-radius: 20px;
-      font-size: 0.85rem;
+      padding: 8px 16px;
+      border-radius: 24px;
+      font-size: 1rem;
+      font-weight: 600;
+      white-space: nowrap;
     }
     .contact-info {
-    margin-top: 20px;
-    text-align: center; /* Center the content inside */
+      margin-top: 40px;
+      text-align: center;
+      font-size: 1.1rem;
     }
-
     .contact-info a {
-    display: inline-block;
-    margin: 0 10px; /* Add horizontal spacing */
-    text-decoration: none;
-    color: #00f0ff;
+      display: inline-block;
+      margin: 0 18px;
+      text-decoration: none;
+      color: #00f0ff;
+      font-weight: 600;
+      transition: color 0.3s;
     }
-
+    .contact-info a:hover {
+      color: #00c4d6;
+    }
     .resume-btn {
-    display: block; /* Makes it take full width, so margin auto works */
-    margin: 20px auto; /* Center horizontally */
-    padding: 10px 20px;
-    background: #00f0ff;
-    color: #000;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background 0.3s;
-    text-align: center;
+      display: block;
+      margin: 30px auto 60px;
+      padding: 14px 28px;
+      background: #00f0ff;
+      color: #000;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: background 0.3s;
+      width: fit-content;
     }
-
     .resume-btn:hover {
       background: #00c4d6;
+    }
+    /* Responsive Sidebar for smaller screens */
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+      .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 2px solid #00f0ff44;
+        flex-direction: row;
+        overflow-x: auto;
+        padding: 15px 20px;
+        align-items: center;
+      }
+      .sidebar img {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 0;
+        margin-right: 20px;
+      }
+      .sidebar h1, .sidebar p {
+        margin: 0 20px 0 0;
+        white-space: nowrap;
+        font-size: 1.1rem;
+      }
+      .menu {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 16px;
+        overflow-x: auto;
+        margin-left: auto;
+      }
+      .menu a {
+        display: inline-block;
+        margin: 0;
+        padding: 10px 14px;
+        white-space: nowrap;
+        font-size: 1rem;
+      }
+      .content {
+        margin-left: 0;
+        padding: 30px 25px;
+      }
+      .section {
+        margin-bottom: 40px;
+        padding: 20px 25px;
+      }
+      h2 {
+        font-size: 1.6rem;
+      }
     }
   </style>
 </head>
 <body>
   <div class="sidebar">
-    <img src="profile.jpg" alt="Profile Picture">
+    <img src="profile.jpg" alt="Photo of Aswin Kumar" />
     <div>
       <h1>Aswin Kumar</h1>
       <p>Automation & Software - R&D Engineer</p>
     </div>
-    <div class="menu">
-      <a href="#summary">📄 Summary</a>
+    <nav class="menu">
+      <a href="#summary" class="active">📄 Summary</a>
       <a href="#education">🎓 Education</a>
       <a href="#experience">💼 Experience</a>
       <a href="#projects">🛠️ Projects</a>
       <a href="#skills">🚀 Skills</a>
       <a href="#certifications">📜 Certifications</a>
       <a href="#additional-info">🧩 Additional Info</a>
-    </div>
+    </nav>
   </div>
-  <div class="content">
-    <div id="summary" class="section">
+  <main class="content">
+    <section id="summary" class="section">
       <h2>Summary</h2>
       <p>I am an experienced Automation and Software Engineer with over 4 years of experience in core automation, industrial protocols, data analysis, robotics, and AI. Proficient in DevOps Agile methodology, I have a proven history of delivering high-quality results in fast-paced environments. My expertise in automation and software engineering, coupled with my passion for innovation, makes me a valuable asset to any organization seeking to leverage technology for business success.</p>
-    </div>
-    <div id="education" class="section">
+    </section>
+    <section id="education" class="section">
       <h2>Education</h2>
       <p>B.E. in Mechatronics Engineering, Agni College of Technology – Anna University, Secured 80.3%</p>
-    </div>
-    <div id="experience" class="section">
+    </section>
+    <section id="experience" class="section">
       <h2>Professional Experience</h2>
       <p><strong>Automation & Software - R&D Engineer</strong>, Lincoln Electric, Chennai, IN</p>
       <ul>
@@ -168,8 +243,8 @@
         <li>Implemented a Pick-To-Light System using I2C, RS232, Profinet, and TCP/IP communication protocols for accurate component picking, enabling efficient tracking and analysis through data logging and report generation.</li>
         <li>Programmed an Auto-Weighing Machine using Siemens S7-1200 PLC and created the front-end in JavaScript with Node-RED for a user-friendly interface, ensuring efficient and precise weighing.</li>
       </ul>
-    </div>
-    <div id="projects" class="section">
+    </section>
+    <section id="projects" class="section">
       <h2>Key Development Projects</h2>
       <p><strong>Plugin Development</strong> (Tech Stack: Karel, PowerShell, TypeScript, Vue, RoboGuide | Mar 2023 | Chennai, IN)</p>
       <ul>
@@ -182,8 +257,8 @@
         <li>Optimized performance by implementing GPU clusters and multiprocessing.</li>
         <li>Developed HTML, CSS, and JavaScript through the Flask framework for user interaction.</li>
       </ul>
-    </div>
-    <div id="skills" class="section">
+    </section>
+    <section id="skills" class="section">
       <h2>Core Skills</h2>
       <div class="skills">
         <div class="skill">Industrial Automation</div>
@@ -230,8 +305,8 @@
         <div class="tech-skill">FTP</div>
         <div class="tech-skill">API Integration</div>
       </div>
-    </div>
-    <div id="certifications" class="section">
+    </section>
+    <section id="certifications" class="section">
       <h2>Certifications</h2>
       <p>Programming in C | NPTEL</p>
       <p>Arc Tool Handling | Fanuc</p>
@@ -240,17 +315,37 @@
       <p>Internet of Things: How did we get here? | University of California San Diego (Coursera)</p>
       <p>AI For Everyone | deeplearning.ai</p>
       <p>Deep Learning | National Research University Higher School of Economics (Coursera)</p>
-    </div>
-    <div id="additional-info" class="section">
+    </section>
+    <section id="additional-info" class="section">
       <h2>Additional Information</h2>
       <p><strong>Languages:</strong> Tamil (Native), English (Professional), Malayalam (Medium)</p>
       <p><strong>Interests:</strong> Robotics, Space systems, Nano-bots, Music</p>
-    </div>
+    </section>
     <div class="contact-info">
       <a href="mailto:aswinr1807@gmail.com">Email</a>
-      <a href="https://www.linkedin.com/in/aswin-kumar-robotic-engineer/" target="_blank">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/aswin-kumar-robotic-engineer/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </div>
     <a href="AswinResume.pdf" class="resume-btn" download>Download Resume</a>
-  </div>
+  </main>
+
+  <script>
+    // Highlight active menu link on scroll
+    const sections = document.querySelectorAll('section');
+    const menuLinks = document.querySelectorAll('.menu a');
+
+    function changeActiveLink() {
+      let index = sections.length;
+
+      while (--index && window.scrollY + 120 < sections[index].offsetTop) {}
+      
+      menuLinks.forEach(link => link.classList.remove('active'));
+      if (menuLinks[index]) {
+        menuLinks[index].classList.add('active');
+      }
+    }
+
+    changeActiveLink();
+    window.addEventListener('scroll', changeActiveLink);
+  </script>
 </body>
 </html>
